@@ -8,20 +8,36 @@ import Data from "../Data";
 class Container extends Component {
 
     state = {
-        employee: [],
+        users: [],
         order: "descend",
         search: "",
-        filteredEmployees: []
+        filteredUsers: []
     };
 
     componentDidMount() {
         API.getUsers().then(res => this.setState({
-            employee: res.data.results,
-            filteredEmployees: res.data.results
+            users: res.data.results,
+            filteredUsers: res.data.results
         })).catch(err => console.log(err))
     }
 
-    
+    sortName = () => {
+        const filtered = this.state.filteredUsers;
+        if (this.state.order === "descend") {
+            const sorted = filtered.sort((a,b) => (a.name.first > b.name.first) ? -1 : 1)
+            this.setState({
+                filteredUsers: sorted,
+                order: "ascend"
+            })
+        } else {
+            const sorted = filtered.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1)
+            this.setState({
+                filteredUsers: sorted,
+                order: "descend"
+            })
+        }
+    }
+
 
 
 

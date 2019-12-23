@@ -11,7 +11,8 @@ The user will be able to search an employee directory that was built with React.
 ## Installation
 In your terminal type: 
 ```git clone https://github.com/verlitas/User-Directory```
-```npx create-react-app .```
+
+then ```npx create-react-app .```
 * Open in Visual Studio to build and run.
 * For further instructions, visit https://help.github.com
 
